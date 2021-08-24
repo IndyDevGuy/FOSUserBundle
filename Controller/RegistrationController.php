@@ -59,7 +59,7 @@ class RegistrationController extends AbstractController
         $user->setEnabled(true);
 
         $event = new GetResponseUserEvent($user, $request);
-        $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
+        $this->eventDispatcher->dispatch($event, FOSUserEvents::REGISTRATION_INITIALIZE);
 
         if (null !== $event->getResponse()) {
             return $event->getResponse();
