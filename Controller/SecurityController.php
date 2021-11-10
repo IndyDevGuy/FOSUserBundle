@@ -24,8 +24,6 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
  *
  * @author Thibault Duplessis <thibault.duplessis@gmail.com>
  * @author Christophe Coevoet <stof@notk.org>
- *
- * @final
  */
 class SecurityController extends AbstractController
 {
