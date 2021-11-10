@@ -14,6 +14,7 @@ namespace FOS\UserBundle\EventListener;
 use FOS\UserBundle\FOSUserEvents;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Translation\DataCollectorTranslator;
 
@@ -45,9 +46,9 @@ class FlashListener implements EventSubscriberInterface
     /**
      * FlashListener constructor.
      */
-    public function __construct(SessionInterface $session, DataCollectorTranslator $translator)
+    public function __construct(RequestStack $requestStack, DataCollectorTranslator $translator)
     {
-        $this->session = $session;
+        $this->session = $requestStack->getSession();
         $this->translator = $translator;
     }
 
